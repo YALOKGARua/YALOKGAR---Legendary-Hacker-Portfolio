@@ -1,18 +1,10 @@
 User-agent: *
 Allow: /
-
-# Sitemap
 Sitemap: https://yalokgarua.github.io/YALOKGAR---Legendary-Hacker-Portfolio/sitemap.xml
-
-# Allow all search engines to index the site
 User-agent: Googlebot
 Allow: /
-
 User-agent: Bingbot
 Allow: /
-
 User-agent: Slurp
 Allow: /
-
-# Crawl-delay for good practice
 Crawl-delay: 1 
