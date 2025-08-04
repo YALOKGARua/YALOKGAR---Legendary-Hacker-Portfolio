@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://yalokgarua.github.io/YALOKGAR---Legendary-Hacker-Portfolio/sitemap.xml
+Sitemap: https://yalokgarua.github.io/YALOKGAR-Portfolio/sitemap.xml
 User-agent: Googlebot
 Allow: /
 User-agent: Bingbot
