@@ -178,17 +178,23 @@ function initializeTypingAnimation() {
     typingElements.forEach(element => {
         const text = element.textContent;
         element.textContent = '';
+        element.style.width = '0';
         let i = 0;
         
         function typeWriter() {
             if (i < text.length) {
                 element.textContent += text.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 80);
+            } else {
+                element.style.width = 'auto';
             }
         }
         
-        setTimeout(typeWriter, 1000);
+        setTimeout(() => {
+            element.style.width = 'auto';
+            typeWriter();
+        }, 1500);
     });
 }
 
