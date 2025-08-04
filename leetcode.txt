@@ -1,0 +1,104 @@
+Avatar
+YALOKGAR
+https://assets.leetcode.com/static_assets/others/Top_100_Liked-1.png
+yalokgar
+Rank
+3 641
+Ukraine
+YALOKGARua
+Community Stats
+Views
+0
+Last week0
+Solution
+0
+Last week0
+Discuss
+0
+Last week0
+Reputation
+0
+Last week0
+Languages
+C++
+1414
+ 
+problems solved
+MySQL
+73
+ 
+problems solved
+C
+53
+ 
+problems solved
+Show more
+Skills
+Advanced
+Dynamic Programmingx256
+Backtrackingx65
+Union Findx36
+Show more
+Intermediate
+Hash Tablex325
+Mathx268
+Depth-First Searchx183
+Show more
+Fundamental
+Arrayx836
+Stringx401
+Sortingx212
+Show more
+Contest Rating
+1,576
+Global Ranking
+191,728/728,146
+Attended
+2
+Top
+26.78%
+1620/3640
+Solved
+60.58%
+Acceptance
+Beats
+99.84%
+Beats
+99.9%
+Beats
+99.83%
+82 Attempting3K submission3 Attempting30 Attempting49 Attempting
+Easy
+449/888
+Med.
+880/1893
+Hard
+291/859
+Badges
+6
+Introduction to Pandas
+50 Days Badge 2024
+Top SQL 50
+Most Recent Badge
+50 Days Badge 2024Badge List
+
+Annual Medals
+badge
+50 Days Badge 2024
+2024-08-19
+Study Plan Medals
+badge
+Introduction to Pandas
+2025-04-21
+badge
+Top SQL 50
+2025-04-21
+badge
+Top 100 Liked
+2025-04-18
+badge
+Top Interview 150
+2025-04-17
+badge
+LeetCode 75
+2025-04-17

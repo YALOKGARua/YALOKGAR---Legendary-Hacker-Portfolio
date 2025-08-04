@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALOKGAR - Cyber Security Expert</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="matrix-bg"></div>
+    
+    <header class="terminal-header">
+        <div class="terminal-controls">
+            <span class="control close"></span>
+            <span class="control minimize"></span>
+            <span class="control maximize"></span>
+        </div>
+        <div class="terminal-title">YALOKGAR@hacklab:~$</div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="glitch-text" data-text="YALOKGAR">YALOKGAR</div>
+            <div class="subtitle">
+                <span class="typing-text">Legendary Cyber Security Expert & Software Architect</span>
+            </div>
+            <div class="location">
+                <span class="location-icon">📍</span> Kyiv, Ukraine
+            </div>
+        </section>
+
+        <section class="terminal-window">
+            <div class="terminal-header-bar">
+                <span>system@YALOKGAR:~$</span>
+                <div class="terminal-actions">
+                    <button onclick="clearTerminal()">clear</button>
+                    <button onclick="showStats()">stats</button>
+                </div>
+            </div>
+            <div class="terminal-content" id="terminal">
+                <div class="terminal-line">
+                    <span class="prompt">root@hacklab:~# </span>
+                    <span class="command">whoami</span>
+                </div>
+                <div class="terminal-output">
+                    YALOKGAR - Elite Hacker & Software Engineer
+                    Classification: APOCALYPTIC LEVEL
+                    Specialty: Universal System Exploitation
+                    Status: ACTIVE DESTROYER
+                </div>
+                
+                <div class="terminal-line">
+                    <span class="prompt">root@hacklab:~# </span>
+                    <span class="command">cat /proc/skills</span>
+                </div>
+                <div class="terminal-output">
+                    Programming Languages: Python, C++, C, JavaScript, TypeScript, Rust, Go, Java, C#
+                    Specializations: Cybersecurity, Algorithms, System Programming, Anti-Cheat Systems
+                    Platform Rankings: CodinGame Top 0.4% | LeetCode 1620+ problems | HackerRank Certified
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-title">CodinGame</div>
+                <div class="stat-value">Level 34</div>
+                <div class="stat-desc">Top 0.4% (3522nd)</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">💻</div>
+                <div class="stat-title">LeetCode</div>
+                <div class="stat-value">1620+</div>
+                <div class="stat-desc">Problems Solved</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">🔐</div>
+                <div class="stat-title">HackerRank</div>
+                <div class="stat-value">15+</div>
+                <div class="stat-desc">Certificates</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-title">GitHub</div>
+                <div class="stat-value">50+</div>
+                <div class="stat-desc">Repositories</div>
+            </div>
+        </section>
+
+        <section class="skills-matrix">
+            <h2 class="section-title">
+                <span class="bracket">[</span>SKILL MATRIX<span class="bracket">]</span>
+            </h2>
+            
+            <div class="skill-categories">
+                <div class="skill-category">
+                    <h3>💀 ADVANCED SKILLS</h3>
+                    <div class="skills-list">
+                        <span class="skill">BFS (x12)</span>
+                        <span class="skill">Pathfinding (x10)</span>
+                        <span class="skill">DFS (x9)</span>
+                        <span class="skill">Dynamic Programming (x5)</span>
+                        <span class="skill">Cryptography (x5)</span>
+                        <span class="skill">Backtracking (x5)</span>
+                        <span class="skill">Neural Networks</span>
+                        <span class="skill">Quantum Computing</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>⚡ PROGRAMMING LANGUAGES</h3>
+                    <div class="skills-list">
+                        <span class="skill legendary">Python (162 puzzles)</span>
+                        <span class="skill legendary">C++ (85 puzzles)</span>
+                        <span class="skill certified">JavaScript (16 puzzles)</span>
+                        <span class="skill certified">C# (16 puzzles)</span>
+                        <span class="skill certified">C (8 puzzles)</span>
+                        <span class="skill certified">Rust (4 puzzles)</span>
+                        <span class="skill">TypeScript</span>
+                        <span class="skill">Go</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🔥 CERTIFICATIONS</h3>
+                    <div class="skills-list">
+                        <span class="skill">Software Engineer</span>
+                        <span class="skill">Problem Solving (Advanced)</span>
+                        <span class="skill">JavaScript (Intermediate)</span>
+                        <span class="skill">SQL (Advanced)</span>
+                        <span class="skill">Frontend Developer (React)</span>
+                        <span class="skill">REST API (Intermediate)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-showcase">
+            <h2 class="section-title">
+                <span class="bracket">[</span>LEGENDARY PROJECTS<span class="bracket">]</span>
+            </h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>💀 AntiCheatYALOKGAR</h3>
+                        <span class="project-lang">C++ | Assembly</span>
+                    </div>
+                    <p>Advanced anti-cheat system with memory, process, file, and network integrity checks</p>
+                    <div class="project-tags">
+                        <span class="tag">Security</span>
+                        <span class="tag">System Programming</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>⚡ VirtuProcessor</h3>
+                        <span class="project-lang">C</span>
+                    </div>
+                    <p>MiniCPU Emulator simulating basic CPU operations with interactive CLI</p>
+                    <div class="project-tags">
+                        <span class="tag">Emulation</span>
+                        <span class="tag">Low-level</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🔐 CryptoMaster</h3>
+                        <span class="project-lang">C++</span>
+                    </div>
+                    <p>Advanced cryptographic toolkit with quantum-resistant algorithms</p>
+                    <div class="project-tags">
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🎯 YALOK Programming Language</h3>
+                        <span class="project-lang">C++</span>
+                    </div>
+                    <p>Custom programming language implementation with advanced features</p>
+                    <div class="project-tags">
+                        <span class="tag">Compiler</span>
+                        <span class="tag">Language Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-matrix">
+            <h2 class="section-title">
+                <span class="bracket">[</span>CONTACT PROTOCOLS<span class="bracket">]</span>
+            </h2>
+            
+            <div class="contact-grid">
+                <a href="https://github.com/YALOKGARua" class="contact-link" target="_blank">
+                    <span class="contact-icon">💀</span>
+                    <span class="contact-text">GitHub/YALOKGARua</span>
+                </a>
+                
+                <a href="mailto:yalokgar@gmail.com" class="contact-link">
+                    <span class="contact-icon">📧</span>
+                    <span class="contact-text">yalokgar@gmail.com</span>
+                </a>
+                
+                <a href="https://t.me/YALOKGAR" class="contact-link" target="_blank">
+                    <span class="contact-icon">⚡</span>
+                    <span class="contact-text">Telegram/YALOKGAR</span>
+                </a>
+                
+                <a href="https://orcid.org/0009-0003-2879-2740" class="contact-link" target="_blank">
+                    <span class="contact-icon">🔬</span>
+                    <span class="contact-text">ORCID Profile</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="terminal-footer">
+        <div class="footer-text">
+            YALOKGAR © 2025 | LEGENDARY CYBER OVERLORD | UNIVERSAL SYSTEM DOMINATION ACHIEVED
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

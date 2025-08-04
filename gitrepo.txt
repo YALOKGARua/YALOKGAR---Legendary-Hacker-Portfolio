@@ -1,0 +1,104 @@
+leetcode Public
+ C++ Updated 1 hour ago
+kernel Public
+ C Updated 2 days ago
+bot Private
+ HTML Updated last week
+ASCII-Art-Generator Public
+ Python Updated last week
+Del-chat-tg Private
+ Python Updated 2 weeks ago
+indigo-2.0 Private
+ JavaScript Updated 2 weeks ago
+YALOK-Programming-Language Public
+ C++ Other Updated 3 weeks ago
+Sorting-Algorithm-Visualizer Public
+ Python Updated 3 weeks ago
+PASSWORD_GENERATED_YALOKGAR Public
+ Python Updated 3 weeks ago
+YALOKGAR-Archiver Public
+ C++ Updated 3 weeks ago
+converter-yalokgar Public
+ C++ Updated 3 weeks ago
+yalokgar_calculator Public
+ C++ Updated 3 weeks ago
+UniFi-Network-API-Client Public
+ TypeScript Updated last month
+YALOKGARua Public
+Config files for my GitHub profile.
+config
+github-config
+Updated last month
+GitHub-Toolkit Public
+ Python MIT License Updated last month
+HTTP-Web-Framework Public
+ C++ MIT License Updated last month
+hz Public
+ C++ Updated last month
+Password-Manager-CLI Public
+ C++ Updated last month
+game3d Public
+ Makefile Updated on Jul 4
+facewasm Private
+ JavaScript Updated on May 30
+sten Public
+ C Updated on May 15
+Password-Strong-Checker Public
+ C++ Updated on May 14
+facebook-wasm Private
+ WebAssembly Updated on May 14
+facebook-limits-extension- Private
+ JavaScript Updated on May 13
+color-analyzer Public
+ Python MIT License Updated on May 13
+PyNetScanner Public
+A powerful network scanning tool with a graphical interface, designed to detect active hosts in your network using ARP and Ping methods. Features include port scanning, result visualization, histor…
+ Python Updated on May 12
+web Public
+ TypeScript Updated on May 12
+StroopTest Public
+ Python MIT License Updated on May 12
+AdaGuardian Public
+ Ada Updated on Apr 26
+bot_del Private
+ Python Updated on Apr 3
+
+ BigDataAnalyzer Public
+BigDataAnalyzer is a console application project designed for generating and processing large sets of numerical data. The project is written in C++ and utilizes standard libraries for file operatio…
+ C++ Updated on Dec 19, 2024
+My-certificates Public
+Сертифікати
+Updated on Nov 27, 2024
+DijkstraAlgorithm Public
+ C++ Updated on Nov 22, 2024
+SortFactory Public
+ C++ MIT License Updated on Nov 15, 2024
+VirtuProcessor Public
+MiniCPU Emulator A simple CPU emulator written in C that simulates basic CPU operations, including arithmetic, logical instructions, and memory handling. It supports an interactive CLI and allows l…
+ C Updated on Nov 13, 2024
+AntiCheatYALOKGAR Public
+Anti-Cheat SystemC++ and Assembly-based solution to detect and prevent cheating through memory, process, file, and network integrity checks.
+ C++ Updated on Nov 13, 2024
+DBManager Public
+ C++ Updated on Nov 13, 2024
+CryptoMaster- Public
+ C++ Updated on Nov 13, 2024
+TradingStrategy Public
+ q Updated on Nov 13, 2024
+amnesia-the-bunker-cheat Public
+Infinite generator and flashlight
+Updated on Nov 6, 2024
+YALOKGAR_BOT-telegram Public
+ Python Updated on Aug 27, 2024
+YALOsafe Public
+I want to create my own safe storage and I am looking for those who will help me with this
+ C++ Updated on Aug 4, 2024
+YALOtoken Private
+I want to create my own token and I am looking for those who will help me with this
+ C++ Updated on Jul 24, 2024
+BusSchedule Public
+ C++ Updated on Jun 12, 2024
+Decomplite-payday2_win32_release.exe- Private
+ C Updated on Apr 21, 2024
+my-backup Private
+Updated on Mar 14, 2024
