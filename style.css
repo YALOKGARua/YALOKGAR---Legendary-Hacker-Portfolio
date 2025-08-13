@@ -39,6 +39,22 @@ body {
     text-rendering: optimizeLegibility;
 }
 
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    background: var(--terminal-bg);
+    color: var(--primary-green);
+    padding: 8px 12px;
+    border: 2px solid var(--primary-green);
+    border-radius: 6px;
+    z-index: 10000;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
 body::before {
     content: '';
     position: fixed;
@@ -304,6 +320,16 @@ body::before {
     font-family: inherit;
     border-radius: 3px;
     transition: all 0.3s ease;
+}
+
+button:focus-visible,
+a:focus-visible,
+.skill:focus-visible,
+.project-card:focus-visible,
+.contact-link:focus-visible {
+    outline: 2px solid var(--warning-yellow);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.25);
 }
 
 .terminal-actions button:hover {
@@ -702,6 +728,19 @@ body::before {
     
     .terminal-title {
         font-size: 0.9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    #matrix-bg {
+        animation: none !important;
     }
 }
 

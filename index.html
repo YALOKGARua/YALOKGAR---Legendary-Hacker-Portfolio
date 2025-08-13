@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
     <meta name="theme-color" content="#00ff41">
     <meta name="msapplication-navbutton-color" content="#00ff41">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="color-scheme" content="dark">
     
     <meta name="geo.region" content="UA-30">
     <meta name="geo.placename" content="Kyiv, Ukraine">
@@ -25,9 +26,11 @@
     <meta name="distribution" content="global">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" as="style">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="YALOKGAR">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://yalokgarua.github.io/YALOKGAR-Portfolio/">
     <meta property="og:title" content="YALOKGAR - Legendary Cyber Security Expert">
     <meta property="og:description" content="Elite hacker and software architect from Ukraine. Top performer on CodinGame, LeetCode, and HackerRank with expertise in cybersecurity.">
@@ -37,6 +40,8 @@
     <meta property="twitter:title" content="YALOKGAR - Legendary Cyber Security Expert">
     <meta property="twitter:description" content="Elite hacker and software architect from Ukraine. Top performer on CodinGame, LeetCode, and HackerRank.">
     <meta property="twitter:image" content="https://yalokgarua.github.io/YALOKGAR-Portfolio/preview.jpg">
+    <meta property="og:image:alt" content="YALOKGAR portfolio preview">
+    <meta name="twitter:image:alt" content="YALOKGAR portfolio preview">
     <link rel="canonical" href="https://yalokgarua.github.io/YALOKGAR-Portfolio/">
     <script type="application/ld+json">
     {
@@ -113,10 +118,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <div id="matrix-bg"></div>
     
-    <header class="terminal-header">
-        <div class="terminal-controls">
+    <header class="terminal-header" role="banner">
+        <div class="terminal-controls" aria-hidden="true">
             <span class="control close"></span>
             <span class="control minimize"></span>
             <span class="control maximize"></span>
@@ -124,26 +130,26 @@
         <div class="terminal-title">YALOKGAR@hacklab:~$</div>
     </header>
 
-    <main class="container">
+    <main id="main" class="container" role="main" tabindex="-1">
         <section class="hero">
-            <div class="glitch-text" data-text="YALOKGAR">YALOKGAR</div>
+            <h1 class="glitch-text" data-text="YALOKGAR">YALOKGAR</h1>
             <div class="subtitle">
                 <span class="typing-text">Legendary Cyber Security Expert & Software Architect</span>
             </div>
             <div class="location">
-                <span class="location-icon">📍</span> Kyiv, Ukraine
+                <span class="location-icon" aria-hidden="true">📍</span> Kyiv, Ukraine
             </div>
         </section>
 
-        <section class="terminal-window">
+        <section class="terminal-window" aria-label="Terminal window">
             <div class="terminal-header-bar">
                 <span>system@YALOKGAR:~$</span>
                 <div class="terminal-actions">
-                    <button onclick="clearTerminal()">clear</button>
-                    <button onclick="showStats()">stats</button>
+                    <button type="button" onclick="clearTerminal()" aria-controls="terminal" aria-label="Clear terminal">clear</button>
+                    <button type="button" onclick="showStats()" aria-controls="terminal" aria-label="Show stats">stats</button>
                 </div>
             </div>
-            <div class="terminal-content" id="terminal">
+            <div class="terminal-content" id="terminal" role="log" aria-live="polite" aria-atomic="false">
                 <div class="terminal-line">
                     <span class="prompt">root@hacklab:~# </span>
                     <span class="command">whoami</span>
@@ -167,38 +173,38 @@
             </div>
         </section>
 
-        <section class="stats-grid">
+        <section class="stats-grid" role="region" aria-label="Performance stats">
             <div class="stat-card">
-                <div class="stat-icon">🏆</div>
+                <div class="stat-icon" aria-hidden="true">🏆</div>
                 <div class="stat-title">CodinGame</div>
                 <div class="stat-value">Level 34</div>
                 <div class="stat-desc">Top 0.4% (3522nd)</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">💻</div>
+                <div class="stat-icon" aria-hidden="true">💻</div>
                 <div class="stat-title">LeetCode</div>
                 <div class="stat-value">1620+</div>
                 <div class="stat-desc">Problems Solved</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">🔐</div>
+                <div class="stat-icon" aria-hidden="true">🔐</div>
                 <div class="stat-title">HackerRank</div>
                 <div class="stat-value">15+</div>
                 <div class="stat-desc">Certificates</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-icon">⚡</div>
+                <div class="stat-icon" aria-hidden="true">⚡</div>
                 <div class="stat-title">GitHub</div>
                 <div class="stat-value">50+</div>
                 <div class="stat-desc">Repositories</div>
             </div>
         </section>
 
-        <section class="skills-matrix">
-            <h2 class="section-title">
+        <section class="skills-matrix" role="region" aria-labelledby="skills-title">
+            <h2 id="skills-title" class="section-title">
                 <span class="bracket">[</span>SKILL MATRIX<span class="bracket">]</span>
             </h2>
             
@@ -245,8 +251,8 @@
             </div>
         </section>
 
-        <section class="projects-showcase">
-            <h2 class="section-title">
+        <section class="projects-showcase" role="region" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="section-title">
                 <span class="bracket">[</span>LEGENDARY PROJECTS<span class="bracket">]</span>
             </h2>
             
@@ -301,14 +307,14 @@
             </div>
         </section>
 
-        <section class="achievements-showcase">
-            <h2 class="section-title">
+        <section class="achievements-showcase" role="region" aria-labelledby="achievements-title">
+            <h2 id="achievements-title" class="section-title">
                 <span class="bracket">[</span>LEGENDARY ACHIEVEMENTS<span class="bracket">]</span>
             </h2>
             
             <div class="achievements-grid">
                 <div class="achievement-card">
-                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-icon" aria-hidden="true">🏆</div>
                     <h3>CodinGame Legend</h3>
                     <p>Reached Level 34 - Top 0.4% globally (3522nd place). Mastered 162 Python puzzles with 100% certification. Legend status in Algorithms, Coding Speed, and Collaboration.</p>
                     <div class="achievement-stats">
@@ -319,7 +325,7 @@
                 </div>
                 
                 <div class="achievement-card">
-                    <div class="achievement-icon">💻</div>
+                    <div class="achievement-icon" aria-hidden="true">💻</div>
                     <h3>LeetCode Master</h3>
                     <p>Solved 1620+ algorithmic problems with 99.9% performance beats. Contest rating 1576, ranking top 26.78% globally. Expert in dynamic programming, graphs, and optimization.</p>
                     <div class="achievement-stats">
@@ -330,7 +336,7 @@
                 </div>
                 
                 <div class="achievement-card">
-                    <div class="achievement-icon">🔐</div>
+                    <div class="achievement-icon" aria-hidden="true">🔐</div>
                     <h3>HackerRank Certified</h3>
                     <p>Earned 15+ professional certifications including Software Engineer, Frontend Developer (React), SQL Advanced, and JavaScript Intermediate. Verified expertise across multiple domains.</p>
                     <div class="achievement-stats">
@@ -341,7 +347,7 @@
                 </div>
                 
                 <div class="achievement-card">
-                    <div class="achievement-icon">⚡</div>
+                    <div class="achievement-icon" aria-hidden="true">⚡</div>
                     <h3>GitHub Contributor</h3>
                     <p>Maintained 50+ open-source repositories with advanced projects in cybersecurity, system programming, and AI. Created anti-cheat systems, CPU emulators, and custom programming languages.</p>
                     <div class="achievement-stats">
@@ -353,8 +359,8 @@
             </div>
         </section>
 
-        <section class="expertise-deep">
-            <h2 class="section-title">
+        <section class="expertise-deep" role="region" aria-labelledby="expertise-title">
+            <h2 id="expertise-title" class="section-title">
                 <span class="bracket">[</span>TECHNICAL EXPERTISE<span class="bracket">]</span>
             </h2>
             
@@ -406,13 +412,13 @@
             </div>
         </section>
 
-        <section class="contact-matrix">
-            <h2 class="section-title">
+        <section class="contact-matrix" role="region" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">
                 <span class="bracket">[</span>CONTACT PROTOCOLS<span class="bracket">]</span>
             </h2>
             
             <div class="contact-grid">
-                <a href="https://github.com/YALOKGARua" class="contact-link" target="_blank">
+                <a href="https://github.com/YALOKGARua" class="contact-link" target="_blank" rel="noopener noreferrer">
                     <span class="contact-icon">💀</span>
                     <span class="contact-text">GitHub/YALOKGARua</span>
                 </a>
@@ -422,12 +428,12 @@
                     <span class="contact-text">yalokgar@gmail.com</span>
                 </a>
                 
-                <a href="https://t.me/YALOKGAR" class="contact-link" target="_blank">
+                <a href="https://t.me/YALOKGAR" class="contact-link" target="_blank" rel="noopener noreferrer">
                     <span class="contact-icon">⚡</span>
                     <span class="contact-text">Telegram/YALOKGAR</span>
                 </a>
                 
-                <a href="https://orcid.org/0009-0003-2879-2740" class="contact-link" target="_blank">
+                <a href="https://orcid.org/0009-0003-2879-2740" class="contact-link" target="_blank" rel="noopener noreferrer">
                     <span class="contact-icon">🔬</span>
                     <span class="contact-text">ORCID Profile</span>
                 </a>
@@ -477,6 +483,7 @@
     }
     </script>
 
+    <noscript>JavaScript is disabled. Animations and interactive elements are not available.</noscript>
     <script src="script.js" defer></script>
 </body>
 </html> 

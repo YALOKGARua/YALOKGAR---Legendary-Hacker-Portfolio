@@ -94,6 +94,7 @@ Status: UNIVERSAL DOMINATION ACHIEVED
 }
 
 function initializeMatrixEffect() {
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     
@@ -107,18 +108,23 @@ function initializeMatrixEffect() {
     
     document.body.appendChild(canvas);
     
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    const devicePixelRatioSafe = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+    canvas.width = Math.floor(width * devicePixelRatioSafe);
+    canvas.height = Math.floor(height * devicePixelRatioSafe);
+    ctx.setTransform(devicePixelRatioSafe, 0, 0, devicePixelRatioSafe, 0, 0);
     
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
     const charArray = chars.split('');
     const fontSize = 14;
-    const columns = width / fontSize;
-    const drops = [];
+    let columns = Math.floor(width / fontSize);
+    let drops = [];
     
-    for (let i = 0; i < columns; i++) {
-        drops[i] = 1;
+    function resetDrops() {
+        drops = new Array(columns).fill(1);
     }
+    resetDrops();
     
     function drawMatrix() {
         ctx.fillStyle = 'rgba(0, 0, 17, 0.05)';
@@ -138,25 +144,46 @@ function initializeMatrixEffect() {
         }
     }
     
-    setInterval(drawMatrix, 50);
+    if (reducedMotion) {
+        drawMatrix();
+    } else {
+        let lastTimestamp = 0;
+        const frameIntervalMs = 50;
+        function animate(timestamp) {
+            if (timestamp - lastTimestamp >= frameIntervalMs) {
+                drawMatrix();
+                lastTimestamp = timestamp;
+            }
+            requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+    }
     
     window.addEventListener('resize', function() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.floor(width * devicePixelRatioSafe);
+        canvas.height = Math.floor(height * devicePixelRatioSafe);
+        ctx.setTransform(devicePixelRatioSafe, 0, 0, devicePixelRatioSafe, 0, 0);
+        columns = Math.floor(width / fontSize);
+        resetDrops();
     });
 }
 
 function initializeGlitchEffects() {
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const glitchElements = document.querySelectorAll('.glitch-text');
     
-    glitchElements.forEach(element => {
-        setInterval(() => {
-            element.style.animation = 'none';
-            setTimeout(() => {
-                element.style.animation = 'glitch 2s infinite';
-            }, 10);
-        }, Math.random() * 5000 + 3000);
-    });
+    if (!reducedMotion) {
+        glitchElements.forEach(element => {
+            setInterval(() => {
+                element.style.animation = 'none';
+                setTimeout(() => {
+                    element.style.animation = 'glitch 2s infinite';
+                }, 10);
+            }, Math.random() * 5000 + 3000);
+        });
+    }
     
     const statCards = document.querySelectorAll('.stat-card');
     statCards.forEach(card => {
@@ -173,28 +200,32 @@ function initializeGlitchEffects() {
 }
 
 function initializeTypingAnimation() {
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const typingElements = document.querySelectorAll('.typing-text');
     
     typingElements.forEach(element => {
         const text = element.textContent;
-        element.textContent = '';
-        element.style.width = '0';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 80);
-            } else {
-                element.style.width = 'auto';
-            }
-        }
-        
-        setTimeout(() => {
+        if (reducedMotion) {
+            element.textContent = text;
             element.style.width = 'auto';
-            typeWriter();
-        }, 1500);
+        } else {
+            element.textContent = '';
+            element.style.width = '0';
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 80);
+                } else {
+                    element.style.width = 'auto';
+                }
+            }
+            setTimeout(() => {
+                element.style.width = 'auto';
+                typeWriter();
+            }, 1500);
+        }
     });
 }
 
@@ -219,6 +250,9 @@ function initializeScrollAnimations() {
 function initializeInteractiveElements() {
     const skills = document.querySelectorAll('.skill');
     skills.forEach(skill => {
+        skill.setAttribute('tabindex', '0');
+        skill.setAttribute('role', 'button');
+        skill.setAttribute('aria-label', `Show details for ${skill.textContent}`);
         skill.addEventListener('click', function() {
             this.style.animation = 'pulse 0.5s ease-in-out';
             setTimeout(() => {
@@ -227,13 +261,31 @@ function initializeInteractiveElements() {
             
             showSkillDetail(this.textContent);
         });
+        skill.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
     });
     
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        const titleEl = card.querySelector('h3');
+        if (titleEl) {
+            card.setAttribute('aria-label', `Open project ${titleEl.textContent}`);
+        }
         card.addEventListener('click', function() {
             const projectTitle = this.querySelector('h3').textContent;
             showProjectDetail(projectTitle);
+        });
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
         });
     });
     
@@ -341,7 +393,11 @@ function showProjectDetail(projectTitle) {
         z-index: 10000;
         animation: fadeIn 0.3s ease-out;
     `;
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
     
+    const headingId = `project-modal-title-${Math.random().toString(36).slice(2)}`;
+    modal.setAttribute('aria-labelledby', headingId);
     modal.innerHTML = `
         <div style="
             background: var(--terminal-bg);
@@ -354,7 +410,7 @@ function showProjectDetail(projectTitle) {
             font-family: 'Fira Code', monospace;
             box-shadow: var(--border-glow);
         ">
-            <h2 style="color: var(--primary-green); margin-bottom: 20px; text-align: center;">
+            <h2 id="${headingId}" style="color: var(--primary-green); margin-bottom: 20px; text-align: center;">
                 ${projectTitle}
             </h2>
             <p style="margin-bottom: 20px; line-height: 1.6;">
@@ -368,7 +424,7 @@ function showProjectDetail(projectTitle) {
                 <strong style="color: var(--danger-red);">Key Features:</strong><br>
                 ${project.features.map(feature => `• ${feature}`).join('<br>')}
             </div>
-            <button onclick="this.parentElement.parentElement.remove()" style="
+            <button data-close-modal style="
                 background: var(--primary-green);
                 color: var(--matrix-bg);
                 border: none;
@@ -382,11 +438,29 @@ function showProjectDetail(projectTitle) {
         </div>
     `;
     
+    const previouslyFocused = document.activeElement;
     document.body.appendChild(modal);
+    const closeBtn = modal.querySelector('[data-close-modal]');
+    if (closeBtn) {
+        closeBtn.setAttribute('aria-label', 'Close project details');
+        closeBtn.addEventListener('click', () => {
+            modal.remove();
+            if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
+        });
+        closeBtn.focus();
+    }
     
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
             modal.remove();
+            if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
+        }
+    });
+    document.addEventListener('keydown', function onKey(e) {
+        if (e.key === 'Escape') {
+            modal.remove();
+            if (previouslyFocused && previouslyFocused.focus) previouslyFocused.focus();
+            document.removeEventListener('keydown', onKey);
         }
     });
 }
@@ -455,20 +529,24 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-setInterval(() => {
-    const randomElement = document.querySelector('.glitch-text, .stat-value, .section-title');
-    if (randomElement && Math.random() < 0.1) {
-        randomElement.style.textShadow = `
-            0 0 5px var(--danger-red),
-            0 0 10px var(--danger-red),
-            0 0 15px var(--danger-red),
-            0 0 20px var(--danger-red)
-        `;
-        setTimeout(() => {
-            randomElement.style.textShadow = '';
-        }, 200);
-    }
-}, 3000);
+(() => {
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) return;
+    setInterval(() => {
+        const randomElement = document.querySelector('.glitch-text, .stat-value, .section-title');
+        if (randomElement && Math.random() < 0.1) {
+            randomElement.style.textShadow = `
+                0 0 5px var(--danger-red),
+                0 0 10px var(--danger-red),
+                0 0 15px var(--danger-red),
+                0 0 20px var(--danger-red)
+            `;
+            setTimeout(() => {
+                randomElement.style.textShadow = '';
+            }, 200);
+        }
+    }, 3000);
+})();
 
 console.log(`
 💀═══════════════════════════════════════════════════════════════════════════════💀
